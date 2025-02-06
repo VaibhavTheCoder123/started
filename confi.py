@@ -1,0 +1,1 @@
+MARKETSTACK_API_KEY = "your_marketstack_api_key"

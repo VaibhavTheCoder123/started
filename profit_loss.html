@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var profitLossData = {{ profit_loss_data|tojson }};
+    
+    var timestamps = profitLossData.map(function(data) { return data.timestamp });
+    var profitLossValues = profitLossData.map(function(data) { return data.profit_loss });
+
+    var ctx = document.getElementById('profitLossChart').getContext('2d');
+    var profitLossChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: timestamps,
+            datasets: [{
+                label: 'Profit & Loss',
+                data: profitLossValues,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        }
+    });
+</script>
